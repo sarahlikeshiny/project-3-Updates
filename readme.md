@@ -4,6 +4,8 @@
 
 ## Alice Marshall, Adrian Welch, Sarah Miller
 
+### This version, May 2017, is a clone of the original project with some updates by Sarah Miller only.
+
 
 Date night is a mean stack app, intended for people to plan a "date night", it allows the user to enter two locations and to locate cinemas that are located within a set distance from those two points. Once a cinema is selected the user can then see the films that are playing on a given day and select a film and the time of the showing. The user can then select a restaurant near to the cinema selected. Node Mailer has been integrated to allow the user to email the details of their night.
 
@@ -11,8 +13,14 @@ The app has two database collections, dateNight, is created by the user with the
 
 The app has been built following the RESTful model in both the back end, which was built in Express, and the Front end, built in AngularJS. Several APIs have been consumed in order to add functionality to the app, these are Google Maps, Autocomplete, Google Places and CineList to provide the listing information. The app requires the users to register and log in and uses JWT to complete the authentication, additionally OAuth is available via Facebook.. Image upload has been implemented using AWS. Node Mailer was used to send emails to the user with the details of their date.    
 
+## Installation Instructions
 
-<h3> Technologies used;</h3>
+In order to run this app locally, first install the node packages by typing `npm i` in the terminal. Then install AngularJS dependencies by typing `bower install`.
+Gulp is used for tooling, all tasks are contained within the 'tasks' folder.
+Run the command `node db/seeds` in order to seed user and date information into the database.
+
+
+### Technologies used;
 * Date Night is a MEAN stack application.
 * The api is built in Node.js with Express.
 * A mongo database was used to store the data, with mongoose used to create models within express.
@@ -29,7 +37,7 @@ The app has been built following the RESTful model in both the back end, which w
 * The google web fonts 'Poppins' and 'Roboto' were used to style the app, font-awesome was used to supply logos.
 * A high resolution images are from Unsplash.com.
 * Babel is used minify and convert the Javascript to ES5.
-* The app is deployed via Heroku. (https://powerful-reef-28263.herokuapp.com/)
+* This app is currently not deployed.
 
 
 
@@ -55,16 +63,18 @@ The New date route, allows the user to create a new date using a form, including
 
 ![](src/images/newdate_page.png)
 
-This page is essentially an edit page and makes several API requests;
+The select a cinema page is essentially an edit page and makes several API requests;
 * Firstly to google maps to display the map in the vicinity of the user's address (added on registration).
 * The second GET request is to google places to get the cinemas within a radius of both the user and the date's addresses, custom javascript filters the results so that only the cinemas closest to the midpoint between the user and date's location display. The slider allows the radius of the search location to be changed.
 * The user then selects a cinema and this makes a GET request to the CineList API for the movie showtimes for that cinema.
 
-![](src/images/select_cinema_page.png)
+![](src/images/selectacinema.png)
 
 Selecting the showtime and clicking "add to my date" selects the film, time and cinema name updates the record and redirects the user back to the show page.
 
 From the show page the user can then opt to select a restaurant, this option redirects the user to a further Edit page. This displays all the restaurants near to the cinema selected, based on a GET request to the Google Places API based on the location of the cinema that has been selected.
+
+![](src/images/select_restaurant.png)
 
 Once the date record has been populated the user can further edit the date record by adding comments and a rating for the date.
 
@@ -81,5 +91,7 @@ All the date records created by all users are available on the date Index page, 
 
 <h3>Challenges </h3>
 Writing the search function for displaying the cinemas within a certain radius of the locations was a complex task, and it would not have been possible to implement this functionality within the timeframe if this project had not been a group project.
+
+The user experience of the site is a little unclear, this version add more Instructions for the user in the hope of improving this.
 
 Limits to API requests also proved an issue in the testing phase, as limits would frequently be exceeded adding extra time to the development.

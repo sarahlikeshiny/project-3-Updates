@@ -13,7 +13,6 @@ function autocomplete($window) {
     link: function(scope, element, attrs, model) {
       const options = {
         types: []
-        // componentRestrictions: {}
       };
 
       const autocomplete = new $window.google.maps.places.Autocomplete(element[0], options);

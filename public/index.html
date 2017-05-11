@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="dateApp">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
+  <title>date night</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfhMcvyXqnc1SJ-fShGvO6_iAD45aU6mo&libraries=places,geometry"></script>
+  <script src="https://use.fontawesome.com/a936edd937.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+  <!-- inject:js -->
+  <script src="/js/app.js"></script>
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- endinject -->
+</head>
+<body ng-controller="HomeCtrl as home" ng-class="home.pageName">
+  <div class="menu" ng-click="home.menuIsOpen = !home.menuIsOpen" ng-class="{ 'open': home.menuIsOpen }">
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav ng-class="{ 'open' : home.menuIsOpen }">
+    <div ng-controller="MainCtrl as main" class="right">
+      <div class="collapse navbar-collapse links" uib-collapse="main.isNavCollapsed">
+       <ul class="nav navbar-nav">
+         <li><a ui-sref="home" ui-sref-active="active">home</a></li>
+         <li ng-if="main.isAuthenticated()"><a ui-sref="dateNightsIndex" ui-sref-active="active">all dates</a></li>
+         <li ng-if="main.isAuthenticated()"><a ui-sref="dateNightsNew" ui-sref-active="active">add a new date</a></li>
+         <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">login</a></li>
+         <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">register</a></li>
+         <li ng-if="main.isAuthenticated()"><a ui-sref="usersShow({ id: main.currentUserId })" ui-sref-active="active">profile</a></li>
+         <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#" ui-sref-active="active">logout</a></li>
+       </ul>
+     </div>
+    </div>
+  </nav>
+
+  <div ng-controller="MainCtrl as main">
+    <div class="alert alert-info" ng-if="main.message">{{ main.message }}</div>
+    <div class="alert alert-info" ng-if="main.user">{{ main.user }}</div>
+    <main ui-view></main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>all your dates</h2>
+  <h4>maybe some inspiration?</h4>
+  <h5>click on your dates name to add some activities</h5>
+  <div class="row">
+    <div ng-repeat="dateNight in dateNightsIndex.all" class="col-md-4 dates-content">
+      <a ui-sref="dateNightsShow({ id: dateNight.id })"><h3>{{ dateNight.nameOfDate }}</h3></a>
+      <p ng-show="dateNight.cinema.film"><h4 class="subheader">We Watched...</h4><strong>{{ dateNight.cinema.film }} at {{ dateNight.cinema.name }}</strong></p>
+      <p ng-show="dateNight.restaurant.name"> <h4 class="subheader">We ate at...</h4><strong>{{ dateNight.restaurant.name }}</strong></p>
+    </div>
+  </div>
+</div>

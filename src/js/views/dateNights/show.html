@@ -27,8 +27,8 @@
       </div>
       <div class="row">
         <h2>Comments:</h2>
-        <h4>{{ dateNightsShow.dateNight.comments }}</h4>
-        <a ui-sref="dateNightsEdit({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Edit</a>
+        <h4>click edit to add a comment and rate your date{{ dateNightsShow.dateNight.comments }}</h4>
+        <a ui-sref="dateNightsEdit({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Edit details</a>
         <a ui-sref="cinemas({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Add Cinema</a>
         <a ui-sref="restaurants({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Add Restaurant</a>
         <button ng-click="dateNightsShow.open()" class="btn btn-danger">Delete</button>

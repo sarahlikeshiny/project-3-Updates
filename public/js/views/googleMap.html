@@ -1,0 +1,28 @@
+<div ng-controller="DateNightsEditCtrl as dateNightsEdit" class="container">
+  <div class="left">
+    <h2>select a cinema</h2>
+    <google-map cinemas="cinemas.all" ng-if="main.currentUser.$resolved && cinemas.date" user="main.currentUser" date-person="cinemas.date" center="cinemas.center" radius="cinemas.radius" selected="cinemas.selected" lat="dateNightsEdit.dateNight.cinema.lat" lng="dateNightsEdit.dateNight.cinema.lng" name="dateNightsEdit.dateNight.cinema.name"></google-map>
+    <div class="slider">
+      <h4>change radius</h4>
+      <input type="range" min="1000" max="10000" value="5000" ng-model="cinemas.radius">
+    </div>
+  </div>
+  <div class="other-side">
+    <button class="btn" ng-click="dateNightsEdit.update()">Add to my date</button>
+    <h2>cinema listings for :</h2>
+    <h3>Click on the film time</h3>
+    <div ng-show="cinemas.info.cinemaId">
+    <h3>{{cinemas.selected.name}}</h3>
+      <ul class="scrollable">
+        <li id= "movieNames" ng-repeat="movie in cinemas.movies.movietimes">
+          <h3>{{ movie.title }}</h3>
+          <ul>
+            <li id="times" ng-repeat="time in movie.times">
+             <p ng-click="dateNightsEdit.addFilm(movie.title, time)" ng-class="{ 'selected': dateNightsEdit.dateNight.cinema.showTime === time && dateNightsEdit.dateNight.cinema.film === movie.title }">{{time}}</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

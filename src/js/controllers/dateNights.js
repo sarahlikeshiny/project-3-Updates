@@ -48,8 +48,8 @@ function DateNightsShowCtrl(DateNight, $stateParams, $state, $uibModal) {
   vm.open = openModal;
 }
 
-DateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state', '$scope'];
-function DateNightsEditCtrl(DateNight, $stateParams, $state, $scope) {
+DateNightsEditCtrl.$inject = ['DateNight', '$stateParams', '$state'];
+function DateNightsEditCtrl(DateNight, $stateParams, $state) {
   const vm = this;
   vm.dateNight = {
     cinema: null,

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="left"></div>
+  <div class="row right">
+    <div class="col-md-12">
+      <div class="row">
+        <h2>{{ dateNightsShow.dateNight.nameOfDate }}</h2>
+        <div>
+          <span uib-rating ng-model="dateNightsShow.dateNight.rating" max="5" read-only="true"></span>
+        </div>
+        <img class="showPic" ng-src="{{ dateNightsShow.dateNight.image }}">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>When:</h4>
+          <h4>Where You're Going:</h4>
+          <h4>What You're Seeing:</h4>
+          <h4>When the Film is:</h4>
+          <h4>Where You're Eating:</h4>
+        </div>
+        <div class="col-md-6 listings">
+          <h4>{{ dateNightsShow.dateNight.when | date: 'dd-MM-yyyy' }}</h4>
+          <h4>{{ dateNightsShow.dateNight.cinema.name }}</h4>
+          <h4>{{ dateNightsShow.dateNight.cinema.film }}</h4>
+          <h4>{{ dateNightsShow.dateNight.cinema.showTime }}</h4>
+          <h4>{{ dateNightsShow.dateNight.restaurant.name }}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Comments:</h2>
+        <h4>click edit to add a comment and rate your date{{ dateNightsShow.dateNight.comments }}</h4>
+        <a ui-sref="dateNightsEdit({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Edit details</a>
+        <a ui-sref="cinemas({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Add Cinema</a>
+        <a ui-sref="restaurants({ id: dateNightsShow.dateNight.id })" class="btn btn-primary">Add Restaurant</a>
+        <button ng-click="dateNightsShow.open()" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

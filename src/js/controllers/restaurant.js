@@ -10,15 +10,10 @@ function RestaurantCtrl(restaurants, DateNight, $stateParams, $scope) {
 
   DateNight.get($stateParams, (date) => {
     vm.date = date;
-    // console.log('date', vm.date);
   });
 
   $scope.$watch(() => vm.date, getRestaurants);
-  // $scope.$watch(() => vm.selected, getSelectedRestaurant);
-  //
-  // function getSelectedRestaurant() {
-  //
-  // }
+
 
   function getRestaurants() {
     if(!vm.date.cinema) return false;

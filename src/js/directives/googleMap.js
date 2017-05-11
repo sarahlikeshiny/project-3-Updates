@@ -33,10 +33,8 @@ function googleMap($window) {
       // const bounds = new $window.google.maps.LatLngBounds(dateLatLng, userLatLng);
       const markers = [];
 
-      // $scope.center = bounds.getCenter().toJSON();
       $scope.center = google.maps.geometry.spherical.interpolate(new google.maps.LatLng(dateLatLng), new google.maps.LatLng(userLatLng), 0.5);
 
-      // $scope.center = { lat: }
 
       const map = new $window.google.maps.Map(element[0], {
         zoom: 12,
@@ -97,7 +95,6 @@ function googleMap($window) {
       }
 
       function findDistance(p1, p2){
-        // console.log(google.maps.geometry.spherical.computeDistanceBetween(p1, p2));
         return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2)).toFixed(2);
       }
 

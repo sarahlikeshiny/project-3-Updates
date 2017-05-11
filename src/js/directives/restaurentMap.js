@@ -19,8 +19,7 @@ function restaurantMap($window) {
       name: '='
     },
     link($scope, element) {
-      // console.log('scope', $scope.date.cinema.lat);
-      // console.log('user scope', $scope.user.geometry.lat);
+
 
       let infoWindow = null;
       const radius = 2000;
@@ -29,7 +28,6 @@ function restaurantMap($window) {
       const cinemaLatLng = { lat: $scope.date.cinema.lat, lng: $scope.date.cinema.lng };
       const markers = [];
 
-      // const userLat = ;
       const map = new $window.google.maps.Map(element[0], {
         zoom: 13,
         center: cinemaLatLng,
@@ -63,12 +61,9 @@ function restaurantMap($window) {
 
       function addMarker(restaurant) {
         const latLng = { lat: restaurant.latitude, lng: restaurant.longitude };
-        // console.log(latLng);
         marker = new google.maps.Marker({
           position: latLng,
-          map,
-          animation: google.maps.Animation.DROP
-          // icon: '/assets/restaurant.svg' // Adding a custom icon
+          map
         });
 
         markers.push(marker);

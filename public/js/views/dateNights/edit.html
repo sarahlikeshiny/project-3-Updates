@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="left"></div>
+  <div class="row other-side">
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="text-center">Edit Your Date</h2>
+      <form id="newForm" name="editForm.editDate" ng-submit="dateNightsEdit.update()"  novalidate>
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsEdit.dateNight.nameOfDate"  placeholder="who was your date?" required/>
+          <div ng-messages="editForm.editDate.name.$error" ng-show="editForm.editDate.$submitted || editForm.editDate.name.$touched || editForm.editDate.name.$empty" role="alert">
+            <div ng-message="required">Date's Name is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsEdit.dateNight.when" placeholder="">
+        </div>
+        <div class="form-group">
+          <input class="fileupload" type="file" base64 name="base64" id="image" ng-model="dateNightsEdit.dateNight.base64">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="which cinema did you go to" name="cinema.name" id="cinema.name" ng-model="dateNightsEdit.dateNight.cinema.name">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="which film did you see?" class="form-control" name="film" id="film" ng-model="dateNightsEdit.dateNight.cinema.film">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="restaurant" id="restaurant" ng-model="dateNightsEdit.dateNight.restaurant.name">
+        </div>
+        <div class="form-group">
+          <textarea type="text" class="form-control" placeholder="how was the date?"name="comment" id="comments" ng-model="dateNightsEdit.dateNight.comments"></textarea>
+          <p>rating</p>
+          <span class="rating" uib-rating ng-model="dateNightsEdit.dateNight.rating" max="5" read-only="false"></span>
+        </div>
+        <button role="button" class="generalbutton" ui-sref="dateNightsShow({ id: dateNightsEdit.DateNight.id })">Cancel</button>
+        <button class="generalbutton" ng-disabled="editForm.editDate.$invalid">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
