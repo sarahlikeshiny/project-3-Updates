@@ -1,0 +1,697 @@
+
+$red: red;
+$main-color: #FF999C;
+$white: white;
+$dark-red: #CD2626;
+$transparent-red: #FA8072;
+
+// ------------------------Global Styles-------------------------------------------
+.centered-styles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.htwo-styles {
+  font-weight: bold;
+  letter-spacing: -3px;
+}
+
+.generalbutton {
+    background: none;
+    color: $dark-red;
+    border: none;
+    padding: 5px 20px;
+    margin-top: 10%;
+    margin-left: 30%;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -3px;
+    &:hover {
+      background: none;
+      color: white;
+      animation: pulse 1s infinite;
+    }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  color: $dark-red;
+  @extend .htwo-styles;
+}
+
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 3;
+  .burger {
+    width: 20px;
+    height: 15px;
+    @extend .centered-styles;
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: $main-color;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: all 0.25s ease-in-out;
+      &:nth-child(1) {
+        top: 0px;
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 6px;
+      }
+      &:nth-child(4) {
+        top: 12px;
+      }
+    }
+  }
+  &.open {
+    .burger {
+      span {
+        background-color: $main-color;
+        &:nth-child(1),
+        &:nth-child(4) {
+          top: 6px;
+          width: 0%;
+          left: 50%;
+        }
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+nav {
+   > div {
+     z-index: 2;
+     width: 100%;
+     height: 10%;
+     position: absolute;
+     top: 0;
+     transition: all 0.3s ease-in-out;
+    //  background-color: rgba(0, 0, 0, 0.3);
+    //  text-align: center;
+     &.right {
+       top: -100%;
+      //  background-color: rgba(0, 0, 0, 0.3);
+      background: none;
+     }
+     .links {
+       // @extend .centered-styles;
+       ul {
+         background: none;
+         float: right;
+         text-align: left;
+         margin: 20px 60px 0 0;
+         li {
+           white-space: nowrap;
+           line-height: 1.5;
+           list-style: none;
+           color: $main-color;
+           a {
+             font-size: 18px;
+             color: $main-color;
+             text-decoration: none;
+             display: inline-block;
+             font-weight: bold;
+             &:hover {
+               color: $main-color;
+               // animation: pulse 0.75s infinite;
+               background: none;
+             }
+             &.active {
+               color: $dark-red;
+               animation: none;
+               text-decoration: underline;
+             }
+           }
+         }
+       }
+     }
+   }
+   &.open {
+     .right {
+       top: 0;
+     }
+   }
+  }
+// --------------------------------Home Page----------------------------
+.home-page {
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/images/home.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  h1 {
+    @extend .centered-styles;
+    color: $main-color;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: -3px;
+    text-shadow: 2px 2px $dark-red;
+    margin-top: -15%;
+  }
+}
+
+// ----------------------------------Index Page------------------------
+
+
+//----------------    CINEMA GMAP PAGE ---------------------
+.cinemas {
+  .left {
+    width: 40%;
+    position: fixed;
+    h2 {
+      padding-top: 10px;
+    }
+    .google-map {
+      margin-top: 30px;
+      height: 600px;
+      width: 100%;
+      background-color: grey;
+    }
+    .slider {
+      width: 100%;
+      margin-top: 1%;
+      h4 {
+        display: inline;
+      }
+      input {
+        display: inline;
+      }
+    }
+  }
+  .other-side {
+    width: 50%;
+    right: 0;
+    float: right;
+    margin: 8% -5% 5% 0;
+    .btn {
+      width: 150px;
+      background-color: $dark-red;
+      border: none;
+      color: white;
+      text-transform: lowercase;
+      &:hover {
+        background-color: $transparent-red;
+      }
+    }
+    .scrollable {
+      height: 460px;
+      overflow: scroll;
+      background-color: $transparent-red;
+      margin: 3% 0;
+      padding: 0 30px;
+      border-radius: 5%;
+      li {
+        list-style: none;
+        h3 {
+          color: white;
+        }
+        .selected {
+          border: 2px solid $dark-red;
+          border-radius: 3%;
+        }
+        p {
+          padding: 3px;
+          font-size: 13px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+
+.restaurants {
+  .left {
+    width: 40%;
+    position: fixed;
+    h2 {
+      padding-top: 10px;
+    }
+    .google-map {
+      margin-top: 30px;
+      height: 600px;
+      width: 100%;
+      background-color: grey;
+    }
+    .slider {
+      width: 100%;
+      margin-top: 1%;
+      h4 {
+        display: inline;
+      }
+      input {
+        display: inline;
+      }
+    }
+  }
+  .other-side {
+    width: 50%;
+    right: 0;
+    float: right;
+    margin: 8% -5% 5% 0;
+    .btn {
+      width: 150px;
+      background-color: $dark-red;
+      border: none;
+      color: white;
+      text-transform: lowercase;
+      &:hover {
+        background-color: $transparent-red;
+      }
+    }
+  }
+}
+
+// -------------------------------------------Show Page------------------------
+.dateNightsShow {
+  width: 100%;
+  height: 100%;
+  text-transform: lowercase;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/food.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .right .row {
+    width: 60%;
+    margin: 5% -5% 0 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .listings {
+      margin-bottom: -100px;
+      h4 {
+        font-weight: bold;
+      }
+    }
+    .btn {
+      width: 150px;
+      background-color: $dark-red;
+      border: none;
+      text-transform: lowercase;
+      &:hover {
+        background-color: $transparent-red;
+
+      }
+    }
+  }
+}
+
+.showPic {
+  max-height: 250px;
+  margin-bottom: -50px;
+}
+
+// ---------------------------------map and listings-----------------------
+
+img {
+  max-width: 100%;
+}
+
+.selected {
+  border: 1px solid dodgerred;
+}
+
+////  login Page  ////
+.logBtns {
+  margin-left: 33%;
+}
+
+
+/// dates index ///
+.dateNightsIndex {
+  margin: 30px auto;
+  // text-align: center;
+  .dates-content {
+    margin: 40px 10px 10px;
+    border-radius: 5%;
+    border: 4px solid $transparent-red;
+    max-width: 360px;
+    height: 250px;
+    a {
+
+      h3 {
+        color: $dark-red;
+        @extend .htwo-styles;
+              margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+/// dates index ///
+.usersShow {
+  margin: 30px auto;
+  // text-align: center;
+  .dates-content {
+    margin: 40px 10px 10px;
+    border-radius: 5%;
+    border: 4px solid $transparent-red;
+    max-width: 360px;
+    height: 250px;
+    a {
+
+      h3 {
+        color: $dark-red;
+        @extend .htwo-styles;
+              margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+body {
+  &.usersShow {
+    width: 100%;
+    height: 100%;
+    margin: 30px auto;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: fixed;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/bike-pic.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .other-side {
+      width: 60%;
+      margin: 5% -8% 5% 0;
+      right: 0;
+      float: right;
+      .dates-content {
+        margin: 40px 20% 10px;
+        border-radius: 5%;
+        border: 4px solid $transparent-red;
+        max-width: 360px;
+        height: 250px;
+        a {
+          h3 {
+            color: $dark-red;
+            @extend .htwo-styles;
+                  margin-bottom: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// -------------------------------------------New Date--------------------
+
+body {
+  &.dateNightsNew {
+        width: 100%;
+        height: 100%;
+        .left {
+          width: 40%;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          position: absolute;
+          background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/setTable.jpg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        .other-side {
+          width: 60%;
+          margin: 5% -5% 5% 0;
+          right: 0;
+          float: right;
+          h2 {
+            font-weight: bold;
+            margin-top: 10%;
+          }
+          h3 {
+            color: grey;
+            font-size: 15px;
+            text-align: center;
+          }
+          .register {
+            font-size: 15px;
+            &:hover {
+              background: none;
+              color: $main-color;
+            }
+          }
+        }
+      .loginForm {
+        border-radius: 5%;
+        padding: 40px;
+        background-color: $transparent-red;
+        color: white;
+          input {
+            margin: 10px;
+          }
+      }
+      .logBtns {
+        margin-left: 30px;
+          .loginbutton {
+            @extend .generalbutton;
+            }
+    }
+  }
+}
+
+#newForm {
+    // border: 1px solid grey;
+  border-radius: 5%;
+  padding: 30px;
+  background-color: $transparent-red;
+  color: white;
+}
+
+.button {
+  .generalbutton {
+  @extend .generalbutton;
+  }
+}
+    // background-color: red;
+//come back to styling the image upload button
+
+//----------------------------------login----------------------------------------
+body {
+  &.login {
+    width: 100%;
+    height: 100%;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: fixed;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .row {
+      width: 60%;
+      margin: 5% -5% 5% 0;
+      right: 0;
+      float: right;
+      h2 {
+        font-weight: bold;
+        margin-top: 10%;
+      }
+      h3 {
+        color: grey;
+        font-size: 15px;
+        text-align: center;
+      }
+      .register {
+        font-size: 15px;
+        &:hover {
+          background: none;
+          color: $main-color;
+        }
+      }
+    }
+    .loginForm {
+      border-radius: 5%;
+      padding: 40px;
+      background-color: $transparent-red;
+      color: white;
+        input {
+          margin: 10px;
+        }
+    }
+    .logBtns {
+      margin-left: 30px;
+      .loginbutton {
+        @extend .generalbutton;
+      }
+      .btn {
+        background: #3b5998;
+        color: white;
+        border: none;
+        padding: 5px 20px;
+        margin-top: 10%;
+        font-size: 22px;
+        font-weight: bold;
+        // font-family: sans-serif;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+//------------------------------------register------------------------------
+
+.register {
+  width: 100%;
+  height: 100%;
+  .left {
+    width: 40%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    position: fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/popcorn-movie-party-entertainment.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .row {
+    width: 60%;
+    margin: 5% -5% 5% 0;
+    right: 0;
+    float: right;
+    h2 {
+      font-weight: bold;
+      margin-top: 10%;
+    }
+    h3 {
+      color: grey;
+      font-size: 15px;
+      text-align: center;
+    }
+    .register {
+      font-size: 15px;
+      &:hover {
+        background: none;
+        color: $main-color;
+      }
+    }
+  }
+.col-md-8 {
+  border-radius: 5%;
+  padding: 40px;
+  background-color: $transparent-red;
+  color: white;
+    input {
+      margin: 10px;
+    }
+}
+
+.generalbutton {
+  @extend .generalbutton;
+  }
+}
+
+//---------------------------------Edit-------------------------------------------
+body {
+  &.dateNightsEdit {
+    width: 100%;
+    height: 100%;
+    .left {
+      width: 40%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      position: fixed;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url('/images/setTable.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .other-side {
+      width: 60%;
+      margin: 5% -5% 5% 0;
+      right: 0;
+      float: right;
+      h2 {
+        font-weight: bold;
+        // margin-top: 10%;
+      }
+      h3 {
+        color: grey;
+        font-size: 15px;
+        text-align: center;
+      }
+      .register {
+        font-size: 15px;
+        &:hover {
+          background: none;
+          color: $main-color;
+        }
+      }
+    }
+    .loginForm {
+      border-radius: 5%;
+      background-color: $transparent-red;
+      color: white;
+      input {
+        // margin: 10px;
+      }
+    }
+    .logBtns {
+      margin-left: 30px;
+      .loginbutton {
+        @extend .generalbutton;
+      }
+    }
+  }
+}
+
+
+
+// --------------------------------Animations-------------------------------------
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

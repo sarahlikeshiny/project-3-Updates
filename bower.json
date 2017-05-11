@@ -1,0 +1,31 @@
+{
+  "name": "project-3",
+  "description": "WDI25 Project 3",
+  "main": "server.js",
+  "authors": [
+    "alexpchin <alex@alexchin.co.uk>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "angular-ui-router": "^0.4.2",
+    "satellizer": "^0.15.5",
+    "angular-bootstrap": "^2.5.0",
+    "angular-animate": "^1.6.3",
+    "bootstrap-css-only": "^3.3.7",
+    "angular-messages": "^1.6.3",
+    "ngPlacesAutocomplete": "ng-places-autocomplete#^1.2.4"
+  },
+  "resolutions": {
+    "angular": "^1.6.3"
+  }
+}

@@ -1,0 +1,13 @@
+<div class="container" ng-controller="DateNightsEditCtrl as dateNightsEdit">
+  <div class="left">
+    <h2>Select a Restaurant</h2>
+    <restaurant-map restaurants="restaurants.all" ng-if="restaurants.all.length && main.currentUser.$resolved" date="dateNightsEdit.dateNight" selected="restaurants.selected" lat="dateNightsEdit.dateNight.restaurant.lat" lng="dateNightsEdit.dateNight.restaurant.lng" name="dateNightsEdit.dateNight.restaurant.name"></restaurant-map>
+  </div>
+
+  <div class="other-side">
+    <button class="btn" ng-click="dateNightsEdit.update()">Add to my date</button>
+    <h2>Your Chosen Restaurant:</h2>
+    <h3>{{restaurants.selected.name}}</h3>
+    <h4>{{restaurants.selected.vicinity}}</h4>
+  </div>
+</div>

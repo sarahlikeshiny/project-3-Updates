@@ -1,0 +1,48 @@
+<div class="register">
+  <div class="container">
+    <div class="left"></div>
+    <div class="row">
+      <h2 class="text-center">Register</h2>
+      <div class="col-md-8 col-md-offset-2">
+      <div class="form-group">
+        <form name="register.registerForm" ng-submit="register.submit()" novalidate>
+         <div>
+           <input type="text" class="form-control" placeholder="username" required name="username" id="username" ng-model="register.user.username">
+           <div ng-messages="register.registerForm.username.$error" ng-show="register.registerForm.$submitted || register.registerForm.username.$touched || register.registerForm.username.$empty" role="alert">
+             <div ng-message="required">Username is required.</div>
+           </div>
+         </div>
+         <div>
+           <input type="text" class="form-control" autocomplete ng-model="register.user.address" geometry="register.user.geometry" placeholder="address" required name="address" id="address">
+           <div ng-messages="register.registerForm.address.$error" ng-show="register.registerForm.$submitted || register.registerForm.address.$touched" role="alert">
+             <div ng-message="required">Address is required.</div>
+           </div>
+           <input type="hidden" ng-model="user.lat" name="lat">
+           <input type="hidden" ng-model="user.lng" name="lng">
+         </div>
+         <div>
+           <input type="email" class="form-control" placeholder="email" required name="email" id="email" ng-model="register.user.email">
+           <div ng-messages="register.registerForm.email.$error" ng-show="register.registerForm.$submitted || register.registerForm.email.$touched" role="alert">
+             <div ng-message="required">Email is required.</div>
+             <div ng-message="email">A valid email address is required.</div>
+         </div>
+          </div>
+         <div>
+           <input type="password" class="form-control" placeholder="password" required name="password" id="password" ng-model="register.user.password">
+           <div ng-messages="register.registerForm.password.$error" ng-show="register.registerForm.$submitted || register.registerForm.password.$touched" role="alert">
+             <div ng-message="required">Password is required.</div>
+           </div>
+         </div>
+         <div>
+           <input type="password" class="form-control" placeholder="password confirmation" required name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+           <div ng-messages="register.registerForm.passwordConfirmation.$error" ng-show="register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched" role="alert">
+             <div ng-message="required">A Password Confirmation is required.</div>
+           </div>
+         </div>
+         <button class="generalbutton" ng-disabled="register.registerForm.$invalid">Register</button>   
+        </form>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="left"></div>
+  <div class="other-side">
+    <h2>all of {{ usersShow.user.username }}'s dates</h2>
+    <div class="row">
+      <div ng-repeat="date in usersShow.userDates" class="col-md-6 dates-content">
+        <a ui-sref="dateNightsShow({ id: date.id })"><h3>{{ date.nameOfDate }}</h3></a>
+        <p><h4 class="subheader">We Watched...</h4><strong>{{ date.cinema.film }} at {{ date.cinema.name }}</strong></p>
+        <p> <h4 class="subheader">We ate at...</h4><strong>{{ date.restaurant.name }}</strong></p>
+      </div>
+    </div>
+  </div>
+</div>

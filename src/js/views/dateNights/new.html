@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="left"></div>
+  <div class="row other-side">
+    <h2 class="text-center">Create Your Date</h2>
+    <div class="col-md-8 col-md-offset-2">
+      <form id="newForm" name="newDate.newDateForm" ng-submit="dateNightsNew.create()" novalidate>
+        <div class="mainform">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" id="name" ng-model="dateNightsNew.dateNight.nameOfDate" placeholder= "name of your date" required />
+            <div ng-messages="newDate.newDateForm.name.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.name.$touched || newDate.newDateForm.name.$empty" role="alert">
+              <div ng-message="required">Username is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" name="when" id="when" ng-model="dateNightsNew.dateNight.when" placeholder= "when's the date?">
+          </div>
+          <div>
+            <input type="text" class="form-control" autocomplete ng-model="dateNightsNew.dateNight.dateAddress" geometry="dateNightsNew.dateNight.geometry" required name="dateAddress" id="dateAddress" placeholder = "enter your date's location">
+            <div ng-messages="newDate.newDateForm.dateAddress.$error" ng-show="newDate.newDateForm.$submitted || newDate.newDateForm.dateAddress.$touched" role="alert">
+              <p ng-message="required">Address is required.</p>
+            </div>
+            <input type="hidden" ng-model="dateNight.lat" name="lat">
+            <input type="hidden" ng-model="dateNight.lng" name="lng">
+          </div>
+          <div class="form-group">
+            <label class="myLabel btn-style" for="base64"></label>
+            <input type="file" base64 name="base64" id="image" ng-model="dateNightsNew.dateNight.base64">
+          </div>
+          <button class="generalbutton" ng-disabled="newDate.newDateForm.$invalid">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
